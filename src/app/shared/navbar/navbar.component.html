@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <span class="example-spacer">
+    <div *ngIf="_auth.isActiveUser; else logo">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <span class="material-icons">face</span>
+        {{_auth.userActive.user}}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item (click)="_auth.logout()">Logout</button>
+      </mat-menu>
+    </div>
+    <ng-template #logo>
+      <span>Olá</span>
+    </ng-template>
+  </span>
+  <button mat-button
+          *ngIf="_auth.isActiveUser" 
+          routerLink="my-posts"
+          class="example-icon favorite-icon">
+    <mat-icon>public</mat-icon>
+    Mis publicaciones
+  </button>
+  <button mat-button
+          *ngIf="_auth.isActiveUser"
+          routerLink="new-email" 
+          class="example-icon favorite-icon">
+    <mat-icon>email</mat-icon>
+    Nuevo email
+  </button>
+  <button mat-button
+          *ngIf="_auth.isActiveUser" 
+          routerLink="my-friends"
+          class="example-icon favorite-icon">
+    <mat-icon>groups</mat-icon>
+    Amigos
+  </button>
+  <button mat-button
+          *ngIf="_auth.isActiveUser" 
+          routerLink="sends-email"
+          class="example-icon favorite-icon">
+    <mat-icon>mark_email_read</mat-icon>
+    Enviados
+  </button>
+  <button mat-icon-button 
+          *ngIf="!_auth.isActiveUser"
+          class="example-icon"
+          (click)="login()">
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>

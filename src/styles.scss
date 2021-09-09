@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ccc;
+}
+
+.b-black{
+    background: #000;
+    color: #FFF;
+}
+.w-100{
+    width: 100%;
+    padding: 0;
+}
+.img-b{
+    height: 400px;
+}
+.msg{
+    margin: 3px;
+    color: rgb(247, 11, 11);
+}
+.conatainer-main{
+    height: 89vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fixed-bottom, .fixed-top{
+    z-index: 0;
+}

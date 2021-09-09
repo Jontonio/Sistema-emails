@@ -1,0 +1,65 @@
+
+
+<form class="p-4" [formGroup]="form">
+    <div class="mb-1">
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" 
+                   matInput 
+                   formControlName="name" 
+                   autocomplete="off">
+            <mat-error *ngIf="name.hasError('required')">
+              el campo name es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mb-1">
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input type="text" 
+                   matInput 
+                   formControlName="last_name">
+            <mat-error *ngIf="last_name.hasError('required')">
+              El campo last name es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mb-1">
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" 
+                   matInput 
+                   formControlName="email">
+                   <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                    Por favor digíte un usuario válido
+                  </mat-error>
+                  <mat-error *ngIf="email.hasError('required')">
+                    El email es <strong>requerido</strong>
+                  </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="mb-1">
+        <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" 
+                   matInput 
+                   formControlName="password">
+                  <mat-error *ngIf="password.hasError('required')">
+                    El password es <strong>requerido</strong>
+                  </mat-error>
+        </mat-form-field>
+    </div>
+    <div *ngIf="showError" class="alert alert-danger" role="alert">
+      {{msg}}
+    </div>
+    <div mat-dialog-actions>
+        <button class="w-100"
+                color="primary" 
+                mat-raised-button
+                (click)="register()"
+                [disabled]="loadding">
+                <span *ngIf="loadding" class="spinner-border spinner-border-sm" role="status"></span>
+                Registrar
+        </button>
+    </div>
+</form>
