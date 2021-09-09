@@ -24,7 +24,7 @@ export class NewEmailComponent implements OnInit {
 
     this.form = this.fb.group({
       email:['joseantoniorojas999@gmail.com', [Validators.required, Validators.email]],
-      password:['6jarcjoseantoniorojas1999', [Validators.required]],
+      password:['', [Validators.required]],
       to:['joseantoniorsystem@gmail.com', Validators.required],
       subject:['Reunión de urgencia', Validators.required],
       html:['', [Validators.required]]
